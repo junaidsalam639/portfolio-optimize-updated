@@ -3,9 +3,6 @@ import { motion } from "framer-motion"
 import Image from "next/image"
 
 const WorkDetailBgImage = ({ images, title }: { title: string; images: string[] }) => {
-  const imageUrl = images[0]?.split(",")[0]
-    ? `https://api.hnhtechsolutions.com${images[0]?.split(",")[0]}`
-    : "/placeholder.svg?height=400&width=800";
 
   return (
     <div className="container mx-auto px-0">
@@ -17,7 +14,7 @@ const WorkDetailBgImage = ({ images, title }: { title: string; images: string[] 
         className="relative w-full h-[80vh] md:h-screen overflow-hidden rounded-none"
       >
         <Image
-          src={imageUrl}
+          src={`https://api.hnhtechsolutions.com${images[0]}`}
           alt="Project background image"
           fill
           priority
@@ -34,3 +31,4 @@ const WorkDetailBgImage = ({ images, title }: { title: string; images: string[] 
 };
 
 export default WorkDetailBgImage;
+

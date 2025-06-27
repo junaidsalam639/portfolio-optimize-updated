@@ -19,6 +19,20 @@ export const GETDATA: DocumentNode = gql`
   }
 `;
 
+export const GETALLPROJECT: DocumentNode = gql`
+query ProjectDemoLink {
+  allProjects {
+    id
+    title
+    images
+    categories {
+      id
+      name
+    }
+  }
+}
+`
+
 export const GETBYID: DocumentNode = gql`
  query ProjectDemoLink($projectId: Int!) {
   projectById(projectId: $projectId) {
@@ -101,5 +115,4 @@ export const CREATE_CONTACT_MUTATION = gql`
     }
   }
 `;
-
 

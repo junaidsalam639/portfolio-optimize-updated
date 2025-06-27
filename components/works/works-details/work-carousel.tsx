@@ -8,17 +8,16 @@ import { Button } from "@/components/ui/button"
 
 export function WorkCarousel({ images, title }: { title: string; images: string[] }) {
     const [currentIndex, setCurrentIndex] = useState(0);
-    const imageArray = images[0]?.split(",") || [];
 
     const nextImage = () => {
-        setCurrentIndex((prev) => (prev + 1) % imageArray?.length)
+        setCurrentIndex((prev) => (prev + 1) % images?.length)
     }
 
     const prevImage = () => {
-        setCurrentIndex((prev) => (prev - 1 + imageArray?.length) % imageArray?.length)
+        setCurrentIndex((prev) => (prev - 1 + images?.length) % images?.length)
     }
 
-    if (imageArray?.length === 0) {
+    if (images?.length === 0) {
         return (
             <div className="aspect-video bg-gray-100 flex items-center justify-center">
                 <span className="text-gray-400">No images available</span>
@@ -38,7 +37,7 @@ export function WorkCarousel({ images, title }: { title: string; images: string[
                     className="absolute inset-0"
                 >
                     <Image
-                        src={`https://api.hnhtechsolutions.com${imageArray[currentIndex]}` || "/placeholder.svg?height=400&width=800"}
+                        src={`https://api.hnhtechsolutions.com${images[currentIndex]}` || "/placeholder.svg?height=400&width=800"}
                         alt={`${title} - Image ${currentIndex + 1}`}
                         fill
                         className="object-cover"
@@ -46,7 +45,7 @@ export function WorkCarousel({ images, title }: { title: string; images: string[
                 </motion.div>
             </AnimatePresence>
 
-            {imageArray?.length > 1 && (
+            {images?.length > 1 && (
                 <>
                     <Button
                         variant="ghost"
@@ -70,9 +69,9 @@ export function WorkCarousel({ images, title }: { title: string; images: string[
                 </>
             )}
 
-            {imageArray?.length > 1 && (
+            {images?.length > 1 && (
                 <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex space-x-2">
-                    {imageArray?.map((_, index) => (
+                    {images?.map((_, index) => (
                         <button
                             key={index}
                             className={`w-3 h-3 rounded-full transition-all duration-300 ${index === currentIndex ? "bg-[#e6003f] scale-110" : "bg-white/60 hover:bg-white/80"
@@ -83,9 +82,9 @@ export function WorkCarousel({ images, title }: { title: string; images: string[
                 </div>
             )}
 
-            {imageArray?.length > 1 && (
+            {images?.length > 1 && (
                 <div className="absolute top-4 right-4 bg-white/80 text-gray-800 px-3 py-1 rounded-full text-sm font-medium backdrop-blur-sm">
-                    {currentIndex + 1} / {imageArray?.length}
+                    {currentIndex + 1} / {images?.length}
                 </div>
             )}
         </div>
