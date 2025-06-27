@@ -1,11 +1,10 @@
 "use client"
-
 import { useEffect, useState } from "react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { motion } from "framer-motion"
 import { Button } from "@/components/ui/button"
-import { Menu, X, MessageCircle, PhoneCall } from "lucide-react"
+import { Menu, X, MessageCircle } from "lucide-react"
 import clsx from "clsx"
 import Image from "next/image"
 import WhatsapSvg from "./whatsap-svg"
@@ -43,21 +42,14 @@ export function Header() {
     >
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-20">
-          <Link href="/" className="flex items-center space-x-2" passHref>
+          <Link href="/" className="flex items-center space-x-2">
             <Image
               src="/images/logo.png"
               alt="Creative Web Solutions"
-              width={80}
-              height={80}
+              width={40}
+              height={40}
               className="h-10 w-auto object-contain"
               priority
-              loading="eager"
-              fetchPriority="high"
-              quality={85}
-              style={{
-                color: 'transparent',
-                viewTransitionName: 'site-logo'
-              }}
             />
           </Link>
 
