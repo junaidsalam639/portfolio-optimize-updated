@@ -174,6 +174,24 @@ export function Footer() {
           </div>
         </div>
 
+        {/* Trustpilot  */}
+        <div
+          className="trustpilot-widget"
+          data-locale="en-US"
+          data-template-id="56278e9abfbbba0bdcd568bc"
+          data-businessunit-id="685e87b3885e63ea1c7b84aa"
+          data-style-height="52px"
+          data-style-width="100%"
+        >
+          <a
+            href="https://www.trustpilot.com/review/creativewebssolutions.com"
+            target="_blank"
+            rel="noopener"
+          >
+            Trustpilot
+          </a>
+        </div>
+
         <div className="border-t border-gray-800 mt-8 pt-8 text-center">
           <p className="text-white text-sm">
             Copyright © 2025 Creative Web Solutions. All Rights Reserved By{" "}
