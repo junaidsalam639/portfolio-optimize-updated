@@ -10,7 +10,7 @@ import { Testimonial } from "@/components/testimonial"
 export default function HomePage() {
   return (
     <div className="min-h-screen">
-      {/* <HeroSection /> */}
+      <HeroSection />
       <ServicesSection />
       <WorksSection />
       <ProcessSection />
