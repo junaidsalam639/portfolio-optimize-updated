@@ -8,31 +8,24 @@ import { WhatsAppFloatingButton } from "@/components/whats-app-floating-button"
 import ApolloClientProvider from "@/lib/apollo-client-provider"
 import Script from "next/script"
 
-const inter = Inter({
-  subsets: ["latin"],
-  weight: ["400", "600", "700"],
-})
+const inter = Inter({ subsets: ["latin"], weight: ["400", "600", "700"] })
 
 export const metadata: Metadata = {
   title: "Creative Web Solutions - Portfolio",
   description: "Professional web development and digital solutions",
 }
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
       <head>
         <Script
           src="//widget.trustpilot.com/bootstrap/v5/tp.widget.bootstrap.min.js"
-          strategy="afterInteractive"
+          strategy="lazyOnload"
         />
         <Script
-          id="gtm-head"
-          strategy="afterInteractive"
+          id="gtm"
+          strategy="lazyOnload"
           dangerouslySetInnerHTML={{
             __html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
               new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -43,7 +36,7 @@ export default function RootLayout({
         />
         <Script
           id="tawk-to"
-          strategy="afterInteractive"
+          strategy="lazyOnload"
           dangerouslySetInnerHTML={{
             __html: `
               var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
@@ -58,7 +51,7 @@ export default function RootLayout({
             `,
           }}
         />
-        <Script id="tawk-chat-tracking" strategy="afterInteractive">
+        <Script id="tawk-chat-tracking" strategy="lazyOnload">
           {`
             function trackTawkChatMessage() {
               if (window.Tawk_API && !window.Tawk_API.__listenerAdded) {
@@ -70,14 +63,11 @@ export default function RootLayout({
                       event: 'tawk_chat_message',
                       message: message
                     });
-                    console.log("🎯 Tawk.to first chat message tracked");
                     window.chatMessageTracked = true;
                   }
                 };
               }
             }
-
-            // Retry until Tawk_API is available
             let tries = 0;
             let interval = setInterval(function () {
               if (window.Tawk_API) {
@@ -85,7 +75,7 @@ export default function RootLayout({
                 clearInterval(interval);
               }
               tries++;
-              if (tries > 20) clearInterval(interval); // Stop after ~10s
+              if (tries > 20) clearInterval(interval);
             }, 500);
           `}
         </Script>
