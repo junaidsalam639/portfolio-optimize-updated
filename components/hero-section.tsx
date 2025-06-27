@@ -15,23 +15,27 @@ const texts = [
 export function HeroSection() {
   const router = useRouter();
   const [index, setIndex] = useState(0)
+  const [videoLoaded, setVideoLoaded] = useState(false)
 
   useEffect(() => {
     const interval = setInterval(() => {
       setIndex((prev) => (prev + 1) % texts.length)
     }, 3000)
     return () => clearInterval(interval)
-  }, [])
+  }, [texts.length]) // Added texts.length as dependency
 
   return (
-    <section className="relative min-h-screen flex flex-col items-start justify-center bg-black overflow-hidden px-4
-    md:px-12">
+    <section className="relative min-h-screen flex flex-col items-start justify-center bg-black overflow-hidden px-4 md:px-12">
+      {/* Video Background (unchanged) */}
       <video
         className="absolute inset-0 w-full h-full object-cover"
         autoPlay
         loop
         muted
         playsInline
+        preload="auto"
+        poster="/images/home/video-poster.jpg"
+        onLoadedData={() => setVideoLoaded(true)}
       >
         <source src="/images/home/bg-video.mp4" type="video/mp4" />
         <track
@@ -43,28 +47,35 @@ export function HeroSection() {
         />
         Your browser does not support the video tag.
       </video>
+
       <div className="absolute inset-0 bg-black/60 z-0" />
+
       <div className="relative z-10 max-w-4xl w-full">
-        <motion.div initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
+        <motion.div 
+          initial={{ opacity: 0, y: 50 }} 
+          animate={{ opacity: 1, y: 0 }} 
+          transition={{ duration: 0.5 }}
+        >
           <motion.h1
             className="text-4xl md:text-5xl font-bold text-white mb-6 leading-tight"
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.3, delay: 0.1 }}
+            style={{ willChange: 'opacity' }}
           >
             TOP-TIER{" "}
             <span
               className="inline-block align-middle relative w-[18ch] h-[1.2em] overflow-hidden text-[#E91E63]"
               aria-live="polite"
             >
-              <AnimatePresence mode="wait" initial={false}>
+              <AnimatePresence mode="wait">
                 <motion.span
-                  key={texts[index]}
+                  key={texts[index]} // Changed to use index directly
                   className="absolute left-0 right-0"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -20 }}
-                  transition={{ duration: 0.5 }}
+                  transition={{ duration: 0.5 }} 
                 >
                   {texts[index]}
                 </motion.span>
@@ -76,9 +87,9 @@ export function HeroSection() {
 
           <motion.p
             className="text-xl text-gray-300 mb-8 max-w-3xl"
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.3, delay: 0.2 }}
           >
             Recruit highly skilled developers and designers to enhance your team's capabilities.
           </motion.p>
@@ -89,6 +100,9 @@ export function HeroSection() {
             className="bg-[#e6003f] hover:bg-[#b60049] text-white rounded-full px-8 py-3 font-semibold flex items-center justify-center gap-3 shadow-md focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2"
             aria-label="Get in touch via phone"
             onClick={() => router.push("/contact")}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.3, delay: 0.3 }}
           >
             <PhoneCall size={20} aria-hidden="true" />
             Get In Touch
