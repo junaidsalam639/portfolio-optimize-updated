@@ -43,14 +43,21 @@ export function Header() {
     >
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-20">
-          <Link href="/" className="flex items-center space-x-2">
+          <Link href="/" className="flex items-center space-x-2" passHref>
             <Image
               src="/images/logo.png"
               alt="Creative Web Solutions"
-              width={40}
-              height={40}
+              width={80}
+              height={80}
               className="h-10 w-auto object-contain"
               priority
+              loading="eager"
+              fetchPriority="high"
+              quality={85}
+              style={{
+                color: 'transparent',
+                viewTransitionName: 'site-logo'
+              }}
             />
           </Link>
 
