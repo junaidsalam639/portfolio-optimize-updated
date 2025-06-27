@@ -49,17 +49,9 @@ export function HeroSection() {
 
       <div className="relative z-10 max-w-4xl w-full">
         <motion.div initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
-          <motion.h1
-            className="text-4xl md:text-5xl font-bold text-white mb-6 leading-tight"
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-          >
+          <h1 className="text-4xl md:text-5xl font-bold text-white mb-6 leading-tight">
             TOP-TIER{" "}
-            <span
-              className="inline-block align-middle relative w-[18ch] h-[1.2em] overflow-hidden text-[#E91E63]"
-              aria-live="polite"
-            >
+            <span className="text-[#E91E63] relative inline-block w-[18ch] h-[1.2em] overflow-hidden align-middle">
               <AnimatePresence mode="wait" initial={false}>
                 <motion.span
                   key={texts[index]}
@@ -75,8 +67,7 @@ export function HeroSection() {
             </span>
             <br />
             ON TIME, ON BUDGET, ON-POINT.
-          </motion.h1>
-
+          </h1>
           <motion.p
             className="text-xl text-gray-300 mb-8 max-w-3xl"
             initial={{ opacity: 0, y: 30 }}
