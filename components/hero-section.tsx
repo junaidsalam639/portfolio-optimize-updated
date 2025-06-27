@@ -50,17 +50,17 @@ export function HeroSection() {
       <div className="absolute inset-0 bg-black/60 z-0" />
 
       <div className="relative z-10 max-w-4xl w-full">
-        <motion.div 
-          initial={{ opacity: 0, y: 50 }} 
-          animate={{ opacity: 1, y: 0 }} 
-          transition={{ duration: 0.5 }} 
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
         >
           <motion.h1
             className="text-4xl md:text-5xl font-bold text-white mb-6 leading-tight"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ duration: 0.3, delay: 0.1 }} 
-            style={{ willChange: 'opacity' }} 
+            transition={{ duration: 0.3, delay: 0.1 }}
+            style={{ willChange: 'opacity' }}
           >
             TOP-TIER{" "}
             <span
@@ -92,7 +92,15 @@ export function HeroSection() {
             className="text-xl text-gray-300 mb-8 max-w-3xl"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ duration: 0.3, delay: 0.2 }}
+            transition={{
+              duration: 0.3,
+              delay: 0.2,
+              ease: "easeOut"
+            }}
+            style={{
+              willChange: 'opacity',
+              viewTransitionName: 'hero-paragraph'
+            }}
           >
             Recruit highly skilled developers and designers to enhance your team's capabilities.
           </motion.p>
@@ -105,7 +113,7 @@ export function HeroSection() {
             onClick={() => router.push("/contact")}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ duration: 0.3, delay: 0.3 }} 
+            transition={{ duration: 0.3, delay: 0.3 }}
           >
             <PhoneCall size={20} aria-hidden="true" />
             Get In Touch
