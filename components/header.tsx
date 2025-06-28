@@ -46,8 +46,8 @@ export function Header() {
             <Image
               src="/images/logo.png"
               alt="Creative Web Solutions"
-              width={40}
-              height={40}
+              width={80}
+              height={22}
               className="h-10 w-auto object-contain"
               priority
             />
