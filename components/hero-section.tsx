@@ -1,7 +1,7 @@
 "use client"
 
 import { useEffect, useState } from "react"
-import { motion, AnimatePresence } from "framer-motion"
+import { motion } from "framer-motion"
 import { PhoneCall } from "lucide-react"
 import { useRouter } from "next/navigation"
 
@@ -16,13 +16,6 @@ const texts = [
 export function HeroSection() {
   const router = useRouter()
   const [index, setIndex] = useState(0)
-  const [animateHeadline, setAnimateHeadline] = useState(false)
-
-  useEffect(() => {
-    requestIdleCallback(() => {
-      setAnimateHeadline(true)
-    })
-  }, [])
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -33,6 +26,7 @@ export function HeroSection() {
 
   return (
     <section className="relative min-h-screen flex flex-col items-start justify-center bg-black overflow-hidden px-4 md:px-12">
+      {/* Background Video */}
       <video
         className="absolute inset-0 w-full h-full object-cover"
         autoPlay
@@ -45,35 +39,30 @@ export function HeroSection() {
         Your browser does not support the video tag.
       </video>
 
+      {/* Dark Overlay */}
       <div className="absolute inset-0 bg-black/60 z-0" />
 
+      {/* Foreground Content */}
       <div className="relative z-10 max-w-4xl w-full">
+        {/* Static Heading for LCP */}
         <h1 className="text-4xl md:text-5xl font-bold text-white mb-6 leading-tight">
-          TOP-TIER{" "}
-          <span
-            className="inline-block align-middle relative w-[18ch] h-[1.2em] overflow-hidden text-[#E91E63]"
-            aria-live="polite"
-          >
-            {animateHeadline ? (
-              <AnimatePresence mode="wait" initial={false}>
-                <motion.span
-                  key={texts[index]}
-                  className="absolute left-0 right-0"
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -20 }}
-                  transition={{ duration: 0.5 }}
-                >
-                  {texts[index]}
-                </motion.span>
-              </AnimatePresence>
-            ) : (
-              <span className="absolute left-0 right-0">{texts[index]}</span>
-            )}
-          </span>
+          TOP-TIER SOFTWARE SOLUTIONS
           <br />
           ON TIME, ON BUDGET, ON-POINT.
         </h1>
+
+        {/* Optional animated subtitle BELOW h1 (not affecting LCP) */}
+        <div className="text-[#E91E63] text-2xl font-semibold h-[1.5em] mb-6">
+          <motion.span
+            key={texts[index]}
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
+            transition={{ duration: 0.4 }}
+          >
+            {texts[index]}
+          </motion.span>
+        </div>
 
         <p className="text-xl text-gray-300 mb-8 max-w-3xl">
           Recruit highly skilled developers and designers to enhance your team's capabilities.
