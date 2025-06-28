@@ -86,16 +86,16 @@ export function Header() {
                 WhatsApp
               </button>
             </a>
-
-            <Button
-              className="bg-[#e6003f] hover:bg-[#b60049] text-white rounded-full px-5 py-2 flex items-center gap-2"
-              aria-label="Start a live chat with our support team"
-            >
-              <MessageCircle size={16} aria-hidden="true" />
-              Live Chat
-            </Button>
+            <a href="https://tawk.to/chat/6239f19d2bd26d087e742876/1fup5fk6a" target="_blank">
+              <Button
+                className="bg-[#e6003f] hover:bg-[#b60049] text-white rounded-full px-5 py-2 flex items-center gap-2"
+                aria-label="Start a live chat with our support team"
+              >
+                <MessageCircle size={16} aria-hidden="true" />
+                Live Chat
+              </Button>
+            </a>
           </div>
-
           <button
             className={scrolled ? "text-black lg:hidden" : "text-white lg:hidden"}
             onClick={() => setIsOpen(!isOpen)}
@@ -138,13 +138,15 @@ export function Header() {
                   WhatsApp
                 </button>
               </a>
-              <Button
-                className="bg-[#e6003f] hover:bg-[#b60049] text-white rounded-full px-5 py-2 flex items-center gap-2"
-                aria-label="Start a live chat with our support team"
-              >
-                <MessageCircle size={16} aria-hidden="true" />
-                Live Chat
-              </Button>
+              <a href="https://tawk.to/chat/6239f19d2bd26d087e742876/1fup5fk6a" target="_blank">
+                <Button
+                  className="bg-[#e6003f] hover:bg-[#b60049] text-white rounded-full px-5 py-2 flex items-center gap-2"
+                  aria-label="Start a live chat with our support team"
+                >
+                  <MessageCircle size={16} aria-hidden="true" />
+                  Live Chat
+                </Button>
+              </a>
             </div>
 
           </motion.nav>
