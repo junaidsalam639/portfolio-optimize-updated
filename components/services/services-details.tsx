@@ -26,7 +26,7 @@ export default function ServicesDetails({ id }: { id: string }) {
                     className="relative w-full h-[80vh] md:h-screen overflow-hidden rounded-none"
                 >
                     <Image
-                        src={service.image || "/placeholder.svg?height=400&width=800"}
+                        src={service.image || "/images/placeholder.svg"}
                         alt={service.title || "Service image"}
                         fill
                         priority

@@ -37,7 +37,7 @@ export function WorkCarousel({ images, title }: { title: string; images: string[
                     className="absolute inset-0"
                 >
                     <Image
-                        src={`https://api.hnhtechsolutions.com${images[currentIndex]}` || "/placeholder.svg?height=400&width=800"}
+                        src={`https://api.hnhtechsolutions.com${images[currentIndex]}` || "/images/placeholder.svg"}
                         alt={`${title} - Image ${currentIndex + 1}`}
                         fill
                         className="object-cover"

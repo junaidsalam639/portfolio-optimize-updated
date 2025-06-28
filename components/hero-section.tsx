@@ -24,7 +24,7 @@ export function HeroSection() {
         loop
         muted
         playsInline
-        poster="/placeholder.svg?height=400&width=800"
+        poster="/images/placeholder.svg"
         preload="auto"
       >
         <source src="/images/home/bg-video.mp4" type="video/mp4" />
@@ -35,25 +35,23 @@ export function HeroSection() {
       <h1
         className="z-10 text-4xl md:text-5xl font-bold text-white mb-6 leading-tight"
         style={{
-          fontFamily: `'Segoe UI', Tahoma, Geneva, Verdana, sans-serif`, 
+          fontFamily: `'Segoe UI', Tahoma, Geneva, Verdana, sans-serif`,
         }}
       >
-        TOP-TIER SOFTWARE SOLUTIONS
-        <br />
-        ON TIME, ON BUDGET, ON-POINT.
-      </h1>
-
-      <div className="relative z-10 mb-6 text-[#E91E63] text-2xl font-semibold h-[1.5em]">
+        TOP-TIER
         <motion.span
           key={texts[index]}
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -10 }}
           transition={{ duration: 0.4 }}
+          className="text-[#E91E63]"
         >
-          {texts[index]}
+         {" "} {texts[index]}
         </motion.span>
-      </div>
+        <br />
+        ON TIME, ON BUDGET, ON-POINT.
+      </h1>
 
       <p className="relative z-10 text-xl text-gray-300 mb-8 max-w-3xl">
         Recruit highly skilled developers and designers to enhance your team's capabilities.
