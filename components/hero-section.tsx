@@ -1,4 +1,5 @@
 "use client"
+
 import { motion, AnimatePresence } from "framer-motion"
 import { useEffect, useState } from "react"
 import { PhoneCall } from "lucide-react"
@@ -13,7 +14,7 @@ const texts = [
 ]
 
 export function HeroSection() {
-  const router = useRouter();
+  const router = useRouter()
   const [index, setIndex] = useState(0)
 
   useEffect(() => {
@@ -24,14 +25,14 @@ export function HeroSection() {
   }, [])
 
   return (
-    <section className="relative min-h-screen flex flex-col items-start justify-center bg-black overflow-hidden px-4
-    md:px-12">
+    <section className="relative min-h-screen flex flex-col items-start justify-center bg-black overflow-hidden px-4 md:px-12">
       <video
         className="absolute inset-0 w-full h-full object-cover"
         autoPlay
         loop
         muted
         playsInline
+        poster="/placeholder.svg?height=400&width=800" 
       >
         <source src="/images/home/bg-video.mp4" type="video/mp4" />
         <track
@@ -44,16 +45,15 @@ export function HeroSection() {
         Your browser does not support the video tag.
       </video>
 
-
       <div className="absolute inset-0 bg-black/60 z-0" />
 
       <div className="relative z-10 max-w-4xl w-full">
-        <motion.div initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
+        <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
           <motion.h1
             className="text-4xl md:text-5xl font-bold text-white mb-6 leading-tight"
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
+            transition={{ duration: 0.6 }}
           >
             TOP-TIER{" "}
             <span
@@ -64,10 +64,10 @@ export function HeroSection() {
                 <motion.span
                   key={texts[index]}
                   className="absolute left-0 right-0"
-                  initial={{ opacity: 0, y: 20 }}
+                  initial={index === 0 ? false : { opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -20 }}
-                  transition={{ duration: 0.5 }}
+                  transition={{ duration: 0.4 }}
                 >
                   {texts[index]}
                 </motion.span>
@@ -79,9 +79,9 @@ export function HeroSection() {
 
           <motion.p
             className="text-xl text-gray-300 mb-8 max-w-3xl"
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
           >
             Recruit highly skilled developers and designers to enhance your team's capabilities.
           </motion.p>
