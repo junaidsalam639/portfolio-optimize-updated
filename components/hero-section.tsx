@@ -32,7 +32,7 @@ export function HeroSection() {
 
       <div className="absolute inset-0 bg-black/60 z-0" />
 
-      <h1
+      {/* <h1
         className="z-10 text-4xl md:text-5xl font-bold text-white mb-6 leading-tight"
         style={{
           fontFamily: `'Segoe UI', Tahoma, Geneva, Verdana, sans-serif`,
@@ -51,7 +51,7 @@ export function HeroSection() {
         </motion.span>
         <br />
         ON TIME, ON BUDGET, ON-POINT.
-      </h1>
+      </h1> */}
 
       <p className="relative z-10 text-xl text-gray-300 mb-8 max-w-3xl">
         Recruit highly skilled developers and designers to enhance your team's capabilities.
